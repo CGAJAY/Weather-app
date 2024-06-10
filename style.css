@@ -15,24 +15,23 @@
     rgba(2, 71, 113, 1) 100%
   );
   min-height: 100vh;
-  padding-bottom: 50px;
 }
 .place {
   text-align: center;
   padding: 20px 0;
 }
-#location {
+.location {
   color: white;
   font-size: 40px;
   font-family: "Roboto", sans-serif;
   font-weight: 900;
 }
-#time {
+.time {
   color: rgb(186, 185, 185);
   font-size: 17px;
 }
 
-#img-container {
+.img-container {
   display: flex;
   justify-content: center;
 }
@@ -57,4 +56,11 @@
   animation: tilt-shaking 0.5s;
   animation-iteration-count: infinite;
   width: 200px;
+  height: 200px;
+}
+.temp {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  color: white;
+  font-size: 60px;
 }
