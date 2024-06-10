@@ -58,6 +58,12 @@
   width: 200px;
   height: 200px;
 }
+.weather {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+}
 .temp {
   font-family: "Roboto", sans-serif;
   text-align: center;

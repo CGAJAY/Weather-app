@@ -2,7 +2,7 @@ let container = document.getElementById("container");
 let place = document.createElement("div");
 place.classList.add("place");
 
-function getCurrentDateTime() {
+function getCurrentDateTime(theDate) {
   let now = new Date();
   let day = now.getDay();
   let hours = now.getHours();
@@ -41,14 +41,14 @@ async function getWeatherByIp() {
     console.log(weatherData);
     const weatherIconCode = weatherData.current.weather[0].icon;
     const temp = weatherData.current.temp;
-    console.log(temp);
+    const weather = weatherData.current.weather[0].main;
 
     // fetching the weather icon
     let weatherIcon = await fetch(
       `https://openweathermap.org/img/wn/${weatherIconCode}@2x.png`
     );
     locationName.textContent = location.region;
-    locationTime.textContent = getCurrentDateTime();
+    locationTime.textContent = getCurrentDateTime(weatherData.current.dt);
     place.appendChild(locationName);
     place.appendChild(locationTime);
     container.appendChild(place);
@@ -59,6 +59,10 @@ async function getWeatherByIp() {
     image.src = weatherIcon.url;
     imgCont.appendChild(image);
     container.appendChild(imgCont);
+    let weatherName = document.createElement("h2");
+    weatherName.classList.add("weather");
+    weatherName.textContent = weather;
+    container.appendChild(weatherName);
     let tempCont = document.createElement("h2");
     tempCont.classList.add("temp");
     tempCont.textContent = `${temp}°c`;
