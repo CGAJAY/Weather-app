@@ -1,4 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+}
+#container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: rgb(232, 245, 252);
+  background: linear-gradient(
+    0deg,
+    rgba(232, 245, 252, 1) 4%,
+    rgba(96, 185, 242, 1) 50%,
+    rgba(2, 71, 113, 1) 100%
+  );
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+.place {
+  text-align: center;
+  padding: 20px 0;
+}
+#location {
+  color: white;
+  font-size: 40px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+}
+#time {
+  color: rgb(186, 185, 185);
+  font-size: 17px;
+}
+
+#img-container {
+  display: flex;
+  justify-content: center;
+}
+@keyframes tilt-shaking {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0eg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
 .myicon {
-  /* width: 500px;
-  height: 500px; */
+  animation: tilt-shaking 0.5s;
+  animation-iteration-count: infinite;
+  width: 200px;
 }

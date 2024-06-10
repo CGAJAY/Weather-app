@@ -1,16 +1,16 @@
 let image = document.createElement("img");
 image.classList.add("myicon");
 // let imageSrc;
-let cont = document.getElementById("container");
+let imgCont = document.getElementById("img-container");
 fetch("https://ipinfo.io/json?token=03a9e4b5033cb1")
   .then((response) => response.json())
   .then((jsonResponse) => {
-    let location = jsonResponse.loc.split(",");
-    console.log(jsonResponse);
-    console.log(`my location: ${location}`);
+    // let [lat, lon] = jsonResponse.loc.split(",");
+    console.log(lat);
+    console.log(lon);
     const myKey = "df79143cd12dec97f7be110d24c50ef2";
     return fetch(
-      `https://api.openweathermap.org/data/3.0/onecall?lat=${location[0]}&lon=${location[1]}&appid=${myKey}`
+      `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${myKey}`
     );
   })
   .then((response) => response.json())
@@ -23,7 +23,15 @@ fetch("https://ipinfo.io/json?token=03a9e4b5033cb1")
   .then((finaldata) => {
     console.log(finaldata);
     image.src = finaldata.url;
-    cont.appendChild(image);
+    imgCont.appendChild(image);
     // console.log(data);
   })
   .catch((error) => console.error("Error:", error));
+
+async function getWeatherByIp() {
+  const locationResponse = await fetch(
+    "https://ipinfo.io/json?token=03a9e4b5033cb1"
+  );
+  const location = await locationResponse.json();
+  let [lat, lon] = jsonResponse.loc.split(",");
+}
