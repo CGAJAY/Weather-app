@@ -42,6 +42,7 @@ async function getWeatherByIp() {
     const weatherIconCode = weatherData.current.weather[0].icon;
     const temp = weatherData.current.temp;
     const weather = weatherData.current.weather[0].main;
+    const weatherDesc = weatherData.current.weather[0].description;
 
     // fetching the weather icon
     let weatherIcon = await fetch(
@@ -63,6 +64,10 @@ async function getWeatherByIp() {
     weatherName.classList.add("weather");
     weatherName.textContent = weather;
     container.appendChild(weatherName);
+    let description = document.createElement("p");
+    description.classList.add("desc");
+    description.textContent = weatherDesc;
+    container.appendChild(description);
     let tempCont = document.createElement("h2");
     tempCont.classList.add("temp");
     tempCont.textContent = `${temp}°c`;
