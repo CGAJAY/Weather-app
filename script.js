@@ -19,3 +19,17 @@ async function fetchWeather(city) {
 		alert(error.message);
 	}
 }
+
+// Event listener for the submit button
+document
+	.getElementById("fetch-weather")
+	.addEventListener("click", () => {
+		const city =
+			document.getElementById("city-input").value; // Get city name from input
+
+		if (city) {
+			fetchWeather(city);
+		} else {
+			alert("Please enter a city name.");
+		}
+	});
