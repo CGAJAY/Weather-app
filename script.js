@@ -20,6 +20,28 @@ async function fetchWeather(city) {
 	}
 }
 
+// Function to display weather data
+function displayWeather(data) {
+	const weatherContainer = document.getElementById(
+		"weather-container"
+	);
+	weatherContainer.innerHTML = ""; // Clear previous data
+
+	const city = data.name;
+	const temperature = data.main.temp; // Temperature in Celsius
+	const description = data.weather[0].description; // Weather description
+
+	// Create a new element for the weather data
+	const weatherElement = document.createElement("div");
+	weatherElement.className = "weather-card";
+	weatherElement.innerHTML = `
+        <h2>${city}</h2>
+        <p>Temperature: ${temperature}°C</p>
+        <p>Weather: ${description}</p>
+    `;
+	weatherContainer.appendChild(weatherElement);
+}
+
 // Event listener for the submit button
 document
 	.getElementById("fetch-weather")
